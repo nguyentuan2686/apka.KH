@@ -26,10 +26,40 @@ foreach ($rsResult as $key => $value)
     {
         $gia = $gia + 30000;
     }
+
+    if(array_pop == "5"){
+        $gia = round($gia/1000);
+    }
+
+    else{
+        $gia = round($gia/1000, -1, $mode = PHP_ROUND_HALF_UP);
+    }
+
+//    $gia = round($gia/1000, -1, $mode = PHP_ROUND_HALF_UP);
+
+//    $gia = product_price($gia);
+
     $arr[$key] = number_format($gia,3);
 }
 
+
 $json = json_encode($arr);
 echo $json;
+
+
 exit();
+
+
 ?>
+
+<script>
+    $( document ).ready(function() {
+        function product_price($priceFloat) {
+            $symbol = '';
+            $symbol_thousand = '.';
+            $decimal_place = 0;
+            $price = number_format($priceFloat, $decimal_place, '', $symbol_thousand);
+            return $price.$symbol;
+        }
+    });
+</script>
