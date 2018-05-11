@@ -27,12 +27,14 @@ foreach ($rsResult as $key => $value)
         $gia = $gia + 30000;
     }
 
-    if(array_pop == "5"){
+    if (substr($gia, -1) == "5" ){
         $gia = round($gia/1000);
+
     }
 
+
     else{
-        $gia = round($gia/1000, -1, $mode = PHP_ROUND_HALF_UP);
+        $gia = ceil($gia/10000) * 10;
     }
 
 //    $gia = round($gia/1000, -1, $mode = PHP_ROUND_HALF_UP);
